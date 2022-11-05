@@ -42,6 +42,17 @@ a {
     background-color: #17141d;
     box-shadow: -1rem 0 3rem #000;
     border-radius: 16px;
+    transition: .2s;
+}
 
+.card:hover {
+    transform: translateY(-1rem) rotate(3deg);
+}
+/* Tips: General Sibling Combinatior (~) : Select all siblings(.card) AFTER the hovered card(.card), not select all siblings (.card) */
+.card:hover~.card {
+    transform: translateX(130px);
 
+}
+.card:not(:first-child){
+    margin-left: -130px;
 }
