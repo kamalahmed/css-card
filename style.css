@@ -3,22 +3,33 @@
 
 /* General Styling */
 body {
+    --bg-color: #17141d;
+    --text-color: #ffffff;
+    --link-color: #0089c7;
+    --scroll-bg-color: #201c29;
+    --accent-color: #7a7a8c;
+    --highlight-color: #ff8a00;
+    --gradient2-color: #e52e71;
+    --borderWidth: 5px;
+
+    
     padding: 0;
     margin: 0;
-    background-color: #17141d;
-    color: white;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'DM Mono', monospace;
 
 }
 main {
-    width: 1170px;
+    width: 1500px;
     max-width: 100%;
-    margin-inline: auto;;
+    margin-inline: auto;
+    padding: 2rem;
 }
 
 a {
     text-decoration: none;
-    color: #0089c7;
+    color: var(--link-color);
 }
 .page-title {
     margin-top: 5rem;
@@ -46,8 +57,12 @@ a {
     justify-content: flex-end;
     padding: 1.5rem;
     transform: translateY(-10px);
+    background: #1D1F20;
+    position: relative;
+    border-radius: var(--borderWidth);
 }
-.popular-header:before {
+/* For Normal Gradinet Border */
+/* .popular-header:before {
     content: "";
     background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);
     position: absolute;
@@ -57,7 +72,24 @@ a {
     height: calc(100% + 10px);
     z-index: 1;
     border-radius: 12px;
+} */
+
+/* For Animated Gradinet Border */
+
+.popular-header:before {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
 }
+
 .popular-header:after {
     content: "";
     position: absolute;
@@ -115,7 +147,7 @@ a {
         bottom: 3.6rem;
         width: 5px;
         border-radius: 5px;
-        background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);
+        background: linear-gradient(130deg,var(--highlight-color),var(--gradient2-color) 41.07%,#319197 76.05%);
         box-shadow: -10px 0 20px 3px #000;
     }
 }
@@ -192,7 +224,7 @@ a {
 }
 
 .card-header h2:hover {
-    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    background: linear-gradient(90deg,var(--highlight-color),var(--gradient2-color));
     text-shadow: none;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -207,7 +239,7 @@ a {
     width: 60px;
     height: 48px;
     fill: none;
-    stroke: #ff8a00;
+    stroke: var(--highlight-color);
     stroke-width: 8;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -223,7 +255,7 @@ a {
 .author-name__prefix {
     font-style: normal;
     font-weight: 700;
-    color: #7a7a8c;
+    color: var(--accent-color);
 }
 /* Tags */
 
@@ -238,7 +270,7 @@ a {
     font-style: normal;
     font-weight: 700;
     font-size: .5rem;
-    color: #7a7a8c;
+    color: var(--accent-color);
     text-transform: uppercase;
     font-size: .66rem;
     border: 3px solid #28242f;
@@ -249,7 +281,7 @@ a {
 }
 
 .tags a:hover {
-    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    background: linear-gradient(90deg,var(--highlight-color),var(--gradient2-color));
     text-shadow: none;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -257,4 +289,19 @@ a {
     box-decoration-break: clone;
     background-clip: text;
     border-color: white;
+}
+
+
+/* animation */
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
