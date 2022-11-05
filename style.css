@@ -6,12 +6,18 @@ body {
     background-color: #17141d;
     color: white;
     font-family: 'DM Mono', monospace;
+
 }
 
 a {
     text-decoration: none;
 }
-
+.page-title {
+    margin-top: 5rem;
+}
+.page-subtitle, .page-title  {
+    text-align: center;
+}
 .card-list {
     display: flex;
     padding: 3rem;
